@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vishnu Gopal – CSE Student & Web Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f3;--panel:#fffdf8;--ink:#1b2236;--muted:#5d6577;--line:#d9d4c7;--acc:#a6342c;--acc2:#1f4e9c;--tint:#f1ede2;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111826;--panel:#151e30;--ink:#e9e6dc;--muted:#a1a9ba;--line:#2a364e;--acc:#ff8f7e;--acc2:#8fb4ff;--tint:#1a2438;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111826;--panel:#151e30;--ink:#e9e6dc;--muted:#a1a9ba;--line:#2a364e;--acc:#ff8f7e;--acc2:#8fb4ff;--tint:#1a2438;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.15rem/1.7 "Newsreader",Georgia,serif}
+h1,h2,h3{font-weight:600;margin:0;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc2);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 1.5rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:54px}
+nav b{font-style:italic;font-size:1.3rem}
+nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav a{text-decoration:none;color:var(--muted);font-size:.98rem;white-space:nowrap}
+nav a:hover{color:var(--acc)}
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+#plot{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;width:100%}
+.let{font-style:italic;color:var(--muted);margin:0 0 .6rem}
+.hero h1{font-size:clamp(3rem,10vw,6.4rem);font-weight:400;letter-spacing:-.02em}
+.hero h1 i{color:var(--acc)}
+.eq{font-family:"IBM Plex Mono",monospace;font-size:.95rem;color:var(--acc2);margin:1.4rem 0 .4rem}
+.sub{max-width:32rem;margin:0 0 1.8rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{padding:.6rem 1.3rem;border:1px solid var(--ink);text-decoration:none;font-size:1.05rem}
+.btn.main{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--acc);background:var(--acc);color:var(--bg)}
+section{padding:4.5rem 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,4.5vw,2.5rem);margin-bottom:1.6rem}
+h2 span{color:var(--acc);font-style:italic;font-weight:400;margin-right:.5rem}
+.rv{opacity:0;transform:translateY(16px);transition:.7s}.rv.on{opacity:1;transform:none}
+.thm{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--acc2);padding:1.3rem 1.5rem;margin:0 0 1.2rem}
+.thm.ex{border-left-color:var(--acc)}
+.thm .lab{font-weight:600;font-variant:small-caps;letter-spacing:.04em;color:var(--acc2)}
+.thm.ex .lab{color:var(--acc)}
+.thm p{margin:.4rem 0 0}.thm p+p{margin-top:.8rem}
+.set{font-family:"IBM Plex Mono",monospace;font-size:1rem;margin-top:.8rem;color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-top:1.2rem}
+.sk{padding:1.2rem;background:var(--tint);border:1px solid var(--line);text-align:center;transition:.25s}
+.sk:hover{border-color:var(--acc);transform:translateY(-3px)}
+.sk big{display:block;font-size:2rem;font-style:italic;color:var(--acc)}
+.sk h3{font-size:1.3rem;font-weight:600}
+.sk small{color:var(--muted);font-style:italic}
+.proj h3{font-size:1.6rem;margin:.3rem 0}
+.proj .btn{display:inline-block;margin-top:1rem}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:.8rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-style:italic;font-weight:400;color:var(--muted);border-bottom:2px solid var(--ink)}
+td small{display:block;color:var(--muted)}
+.score{font-style:italic;font-size:1.4rem;color:var(--acc)}
+.wrapx{overflow-x:auto}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.tabs button{font:inherit;font-size:1rem;padding:.35rem 1rem;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-style:italic}
+.tabs button[aria-selected="true"]{border-color:var(--acc2);color:var(--acc2);background:var(--tint)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;min-height:8rem;align-content:flex-start}
+.chip{padding:.45rem 1rem;background:var(--panel);border:1px solid var(--line);font-size:1.05rem}
+.chip::before{content:"∈ ";color:var(--acc);font-style:italic}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.contact>*{display:block;padding:1.1rem 1.3rem;background:var(--panel);border:1px solid var(--line);text-decoration:none;overflow-wrap:anywhere}
+.contact a:hover{border-color:var(--acc2)}
+.contact span{display:block;color:var(--acc);font-style:italic;font-size:.95rem}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+footer .qed{float:right;font-size:1.4rem;color:var(--ink)}
+@media (max-width:720px){.hero{min-height:80vh}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>V.G.</b>
+<ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#internship">Internship</a></li><li><a href="#education">Education</a></li><li><a href="#strengths">Strengths</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<header class="hero">
+<canvas id="plot" aria-hidden="true"></canvas>
+<div class="wrap">
+<p class="let">Let <i>V</i> be a first-year engineering student. Then</p>
+<h1><i>Vishnu</i> Gopal</h1>
+<p class="eq">curiosity + discipline → impact</p>
+<p class="sub">B.Tech Computer Science and Engineering at South Asian University, Delhi. I like understanding how things work, then building something useful from it.</p>
+<div class="btns"><a class="btn main" href="#projects">See my project</a><a class="btn" href="#contact">Contact me</a></div>
+</div>
+</header>
+
+<main>
+<section id="about"><div class="wrap rv">
+<h2><span>§1</span>About</h2>
+<div class="thm"><span class="lab">Definition 1.</span>
+<p>An engineer in the making: someone who learns fast, welcomes feedback, and brings energy, discipline and a problem-solving mindset to every team.</p></div>
+<div class="thm"><span class="lab">Goal.</span>
+<p>To find an entry-level engineering role in a forward-thinking organisation, where I can learn from experienced professionals and grow into a dependable, innovative engineer who delivers quality work.</p></div>
+</div></section>
+
+<section id="skills"><div class="wrap rv">
+<h2><span>§2</span>Technical skills</h2>
+<div class="thm"><span class="lab">Theorem 2.</span>
+<p>My toolkit is the set below, at a foundational level and growing.</p>
+<div class="set">S = { C, HTML, CSS, JavaScript }</div></div>
+<div class="skills">
+<div class="sk"><big>C</big><h3>C</h3><small>basic</small></div>
+<div class="sk"><big>&lt; &gt;</big><h3>HTML</h3><small>basic</small></div>
+<div class="sk"><big>{ }</big><h3>CSS</h3><small>basic</small></div>
+<div class="sk"><big>ƒ(x)</big><h3>JavaScript</h3><small>basic</small></div>
+</div></div></section>
+
+<section id="projects"><div class="wrap rv">
+<h2><span>§3</span>Projects</h2>
+<div class="thm ex proj"><span class="lab">Example 3.1.</span>
+<h3>Mess Inventory</h3>
+<p>A web app for keeping track of mess inventory, so stock can be recorded and checked in one place instead of on paper.</p>
+<a class="btn main" href="https://mess-inventory.free.je/?i=1" target="_blank" rel="noopener noreferrer">Open the project ↗</a></div>
+</div></section>
+
+<section id="internship"><div class="wrap rv">
+<h2><span>§4</span>Internship</h2>
+<div class="thm ex"><span class="lab">Open problem.</span>
+<p>Find an internship where I can apply what I’m learning, work alongside experienced engineers, and contribute to real work.</p>
+<div class="set">status: open to opportunities</div></div>
+</div></section>
+
+<section id="education"><div class="wrap rv">
+<h2><span>§5</span>Education</h2>
+<div class="wrapx"><table>
+<thead><tr><th>Years</th><th>Programme</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>2026 – 2030</td><td>B.Tech, Computer Science and Engineering<small>South Asian University</small></td><td>in progress</td></tr>
+<tr><td>2024 – 25</td><td>Class XII, Higher Secondary<small>Vivekanand Mission School</small></td><td class="score">80.8%</td></tr>
+<tr><td>2022 – 23</td><td>Class X, Secondary<small>D.A.V. Public School</small></td><td class="score">93.8%</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="strengths"><div class="wrap rv">
+<h2><span>§6</span>Strengths</h2>
+<div class="tabs" role="tablist" aria-label="Strength groups"></div>
+<div class="chips" aria-live="polite"></div>
+</div></section>
+
+<section id="contact"><div class="wrap rv">
+<h2><span>§7</span>Contact</h2>
+<div class="contact">
+<a href="mailto:vishnugopal15viul@gmail.com"><span>email</span>vishnugopal15viul@gmail.com</a>
+<a href="tel:+919060918957"><span>phone</span>+91 90609 18957</a>
+<a href="https://www.linkedin.com/in/vishnu-gopal-9a28aa432/" target="_blank" rel="noopener noreferrer"><span>linkedin</span>linkedin.com/in/vishnu-gopal</a>
+<div><span>location</span>Delhi, India</div>
+</div></div></section>
+</main>
+<footer><div class="wrap"><span class="qed" aria-hidden="true">∎</span>© <span id="yr"></span> Vishnu Gopal</div></footer>
+
+<script>
+const groups={
+ "Thinking":["Analytical and critical thinking","Problem-solving mindset","Strong attention to detail","Curiosity and eagerness to innovate"],
+ "Working":["Quick learner with a growth mindset","Time management and discipline","Adaptability under pressure","Work ethic and reliability"],
+ "People":["Teamwork and collaboration","Clear written and verbal communication","Leadership and ownership"]
+};
+const tabs=document.querySelector('.tabs'),chips=document.querySelector('.chips');
+function show(n){
+  tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.textContent===n));
+  chips.innerHTML='';
+  groups[n].forEach(t=>{const d=document.createElement('div');d.className='chip';d.textContent=t;chips.appendChild(d)});
+}
+Object.keys(groups).forEach(n=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=n;b.onclick=()=>show(n);tabs.appendChild(b)});
+show("Thinking");
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(n=>io.observe(n));
+
+// Hero: coordinate plane with y = A sin(kx); the cursor changes A and k
+const cv=document.getElementById('plot'),cx=cv.getContext('2d');
+let W,H,mx=.4,my=.5,t=0;
+function size(){const r=devicePixelRatio||1,b=cv.getBoundingClientRect();W=b.width;H=b.height;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);if(still)draw()}
+const v=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function draw(){
+  cx.clearRect(0,0,W,H);
+  const line=v('--line'),ink=v('--muted'),acc=v('--acc'),s=40,oy=H*.5;
+  cx.lineWidth=1;cx.strokeStyle=line;cx.globalAlpha=.7;cx.beginPath();
+  for(let x=0;x<=W;x+=s){cx.moveTo(x,0);cx.lineTo(x,H)}
+  for(let y=oy%s;y<=H;y+=s){cx.moveTo(0,y);cx.lineTo(W,y)}
+  cx.stroke();cx.globalAlpha=1;
+  cx.strokeStyle=ink;cx.lineWidth=1.5;cx.beginPath();cx.moveTo(0,oy);cx.lineTo(W,oy);cx.moveTo(s*2,0);cx.lineTo(s*2,H);cx.stroke();
+  const A=30+my*90,k=.006+mx*.014;
+  cx.strokeStyle=acc;cx.lineWidth=2.5;cx.beginPath();
+  for(let x=0;x<=W;x+=3){const y=oy-Math.sin((x-s*2)*k-t)*A;x?cx.lineTo(x,y):cx.moveTo(x,y)}
+  cx.stroke();
+  const px=W*.78,py=oy-Math.sin((px-s*2)*k-t)*A;
+  cx.fillStyle=acc;cx.beginPath();cx.arc(px,py,5,0,7);cx.fill();
+  cx.setLineDash([4,5]);cx.strokeStyle=ink;cx.lineWidth=1;cx.beginPath();cx.moveTo(px,oy);cx.lineTo(px,py);cx.stroke();cx.setLineDash([]);
+  cx.fillStyle=ink;cx.font='italic 16px Newsreader, serif';
+  cx.fillText('y = '+A.toFixed(0)+' sin('+(k*100).toFixed(1)+'x)',px-60,Math.max(24,py-16));
+  if(!still){t+=.02;requestAnimationFrame(draw)}
+}
+addEventListener('pointermove',e=>{const b=cv.getBoundingClientRect();mx=Math.min(1,Math.max(0,(e.clientX-b.left)/b.width));my=Math.min(1,Math.max(0,(e.clientY-b.top)/b.height))});
+addEventListener('resize',size);
+size();if(!still)draw();
+</script>
+</body>
+</html>
